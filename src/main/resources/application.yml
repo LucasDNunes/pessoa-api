@@ -9,3 +9,6 @@ spring:
   h2:
     console:
       enabled: true
+
+
+# url banco : http://localhost:8080/h2-console

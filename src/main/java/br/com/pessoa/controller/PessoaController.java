@@ -1,5 +1,6 @@
 package br.com.pessoa.controller;
 
+import br.com.pessoa.controller.dto.PessoaDto;
 import br.com.pessoa.exception.RegistroNaoEncontradoException;
 import br.com.pessoa.pessoa.Pessoa;
 import br.com.pessoa.pessoa.PessoaMapper;
@@ -40,5 +41,10 @@ public class PessoaController {
     @PatchMapping(value = "/{id}")
     public PessoaDto atualizar(@RequestBody PessoaDto pessoaDto, @PathVariable Long id) {
         return PessoaMapper.toDto(pessoaService.atualizar(PessoaMapper.toEntity(pessoaDto), id));
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Long id) {
+        pessoaService.excluir(id);
     }
 }

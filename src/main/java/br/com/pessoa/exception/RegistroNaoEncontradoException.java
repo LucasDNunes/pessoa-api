@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class RegistroNaoEncontradoException extends RuntimeException {
 
     public RegistroNaoEncontradoException(String entidade, Object id) {
-        super("Não encotnrado " + entidade + "com o id: " + id);
+        super("Não encotnrado " + entidade + " com o id: " + id);
     }
 }

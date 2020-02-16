@@ -1,8 +1,10 @@
 package br.com.pessoa.pessoa;
 
+import br.com.pessoa.core.EntityCreate;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,7 +18,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pessoa implements Serializable {
+public class Pessoa extends EntityCreate implements Serializable {
     private static final long serialVersionUID = -4863565779850266829L;
 
     @Id
@@ -41,14 +43,5 @@ public class Pessoa implements Serializable {
 
     @Column(name = "cpf")
     private String cpf;
-
-    @Column(name = "created_date", nullable = false, updatable = false)
-    @CreatedDate
-    private LocalDateTime createdDate = LocalDateTime.now();
-
-    @Column(name = "modified_date")
-    @LastModifiedDate
-    private LocalDateTime modifiedDate = LocalDateTime.now();
-
 
 }

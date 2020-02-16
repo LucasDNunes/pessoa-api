@@ -5,14 +5,27 @@ CREATE TABLE pessoa (
   nome VARCHAR(100) NOT NULL,
   sexo VARCHAR(20) NOT NULL,
   email VARCHAR(250),
-  data_nascimento timestamp,
+  data_nascimento timestamp not null,
   naturalidade VARCHAR(250),
   cpf VARCHAR(50) NOT NULL,
+  created_date timestamp NOT NULL,
+  modified_date timestamp  NOT NULL,
+  UNIQUE KEY uk_cpf (cpf)
+);
+
+INSERT INTO pessoa (nome, sexo, email, data_nascimento, naturalidade, cpf, created_date, modified_date) VALUES
+  ('Lucas', 'MASCULINO', 'lucasdomingosnunes@gmail.com', '1996-02-07 19:10:25-07', 'Tubarão', '07364981927', now(), now());
+
+DROP TABLE IF EXISTS usuario;
+
+CREATE TABLE usuario (
+  username VARCHAR(100) PRIMARY KEY,
+  password VARCHAR(100) NOT NULL,
   created_date timestamp NOT NULL,
   modified_date timestamp  NOT NULL
 );
 
-INSERT INTO pessoa (nome, sexo, email, data_nascimento, naturalidade, cpf, created_date, modified_date) VALUES
-  ('Lucas', 'MASCULINO', 'lucasdomingosnunes@gmail.com', '1996-02-07 19:10:25-07', 'Tubarão', '073.649.819-27', now(), now());
---   ('Bill', 'Gates', 'Billionaire Tech Entrepreneur'),
---   ('Folrunsho', 'Alakija', 'Billionaire Oil Magnate');
+
+INSERT INTO usuario (username, password, created_date, modified_date) VALUES
+  ('guest1', 'guest1', now(), now()),
+  ('guest2', 'guest2', now(), now());
