@@ -40,6 +40,6 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/source");
+        web.ignoring().antMatchers("/source", "/usuarios");
     }
 }
