@@ -17,4 +17,6 @@ public class PessoaDto {
     private String dataNascimento;
     private String naturalidade;
     private String cpf;
+    private String endereco;
+    private Integer telefone;
 }

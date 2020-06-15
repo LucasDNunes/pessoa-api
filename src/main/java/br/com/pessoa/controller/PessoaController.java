@@ -12,10 +12,11 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("pessoas")
+@RequestMapping("/pessoas")
 @CrossOrigin(origins = "http://localhost:4200")
 public class PessoaController {
 
+    public static final String ROLE_CLIENT = "ROLE_CLIENT";
     private final PessoaService pessoaService;
 
     @Autowired

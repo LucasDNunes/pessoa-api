@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "pessoa")
@@ -41,7 +42,13 @@ public class Pessoa extends EntityCreate implements Serializable {
     @Column(name = "naturalidade")
     private String naturalidade;
 
-    @Column(name = "cpf")
+    @Column(name = "cpf", unique = true)
     private String cpf;
+
+    @Column(name = "endereco")
+    private String endereco;
+
+    @Column(name = "telefone")
+    private Integer telefone;
 
 }
