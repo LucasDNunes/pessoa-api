@@ -23,8 +23,6 @@ public class PessoaMapper {
                 .naturalidade(pessoa.getNaturalidade())
                 .cpf(pessoa.getCpf())
                 .dataNascimento(pessoa.getDataNascimento().format(DateTimeFormatter.ofPattern(FORMAT)))
-                .telefone(pessoa.getTelefone())
-                .endereco(pessoa.getEndereco())
                 .build();
     }
 
@@ -36,8 +34,6 @@ public class PessoaMapper {
                 .email(pessoaDto.getEmail())
                 .naturalidade(pessoaDto.getNaturalidade())
                 .cpf(pessoaDto.getCpf())
-                .endereco(pessoaDto.getEndereco())
-                .telefone(pessoaDto.getTelefone())
                 .build();
 
         if (!dataValida(pessoaDto.getDataNascimento())) {

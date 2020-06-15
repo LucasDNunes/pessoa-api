@@ -8,7 +8,6 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -28,12 +27,6 @@ public class Usuario implements Serializable {
     @JsonIgnore
     @Column(name = "password")
     private String password;
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(name = "user_role",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "role_id"))
-//    private List<Role> roles;
 
     @Column(name = "created_date", nullable = false, updatable = false)
     @CreatedDate

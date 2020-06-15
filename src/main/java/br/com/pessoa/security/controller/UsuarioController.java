@@ -18,7 +18,7 @@ public class UsuarioController {
         this.service = usuarioService;
     }
 
-    @PostMapping(value = "/login")
+    @PostMapping
     public boolean login(@RequestBody UsuarioDto usuarioDto) {
         return service.login(UsuarioMapper.toEntity(usuarioDto));
     }
