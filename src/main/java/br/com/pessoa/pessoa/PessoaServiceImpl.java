@@ -2,6 +2,8 @@ package br.com.pessoa.pessoa;
 
 import br.com.caelum.stella.validation.CPFValidator;
 import br.com.pessoa.exception.RegistroNaoEncontradoException;
+import br.com.pessoa.pessoa.exception.CpfInvalidoException;
+import br.com.pessoa.pessoa.exception.EmailInvalidoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -36,12 +38,12 @@ public class PessoaServiceImpl implements PessoaService {
     @Override
     public Pessoa salvar(Pessoa pessoa) {
         if (!validarEmail(pessoa.getEmail())) {
-            throw new IllegalArgumentException("Email inválido");
+            throw new EmailInvalidoException(pessoa.getEmail());
+        }
+        if (!validarCpf(pessoa.getCpf())) {
+            throw new CpfInvalidoException(pessoa.getCpf());
         }
         String cpfApenasNumero = pessoa.getCpf().replaceAll("[^0-9]", "");
-        if (!validarCpf(pessoa.getCpf())) {
-            throw new IllegalArgumentException("CPF inválido");
-        }
         pessoa.setCpf(cpfApenasNumero);
         return repo.save(pessoa);
     }
@@ -55,6 +57,7 @@ public class PessoaServiceImpl implements PessoaService {
     }
 
     private boolean validarCpf(String cpf) {
+        if (cpf == null) return false;
         CPFValidator cpfValidator = new CPFValidator();
         try {
             cpfValidator.assertValid(cpf);

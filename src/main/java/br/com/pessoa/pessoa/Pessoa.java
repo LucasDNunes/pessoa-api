@@ -41,6 +41,9 @@ public class Pessoa extends EntityCreate implements Serializable {
     @Column(name = "naturalidade")
     private String naturalidade;
 
+    @Column(name = "nascionalidade")
+    private String nascionalidade;
+
     @Column(name = "cpf")
     private String cpf;
 
