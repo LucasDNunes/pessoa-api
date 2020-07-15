@@ -10,5 +10,11 @@ spring:
     console:
       enabled: true
 
+security:
+  oauth2:
+    client:
+      scope: password
+      client-id: pessoa-api
+      client-secret: 123
 
 # url banco : http://localhost:8080/h2-console

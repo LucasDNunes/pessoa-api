@@ -14,8 +14,8 @@ CREATE TABLE pessoa (
   UNIQUE KEY uk_cpf (cpf)
 );
 
-INSERT INTO pessoa (nome, sexo, email, data_nascimento, naturalidade, cpf, created_date, modified_date) VALUES
-  ('Lucas', 'MASCULINO', 'lucasdomingosnunes@gmail.com', '1996-02-07 19:10:25-07', 'Tubarão', '11111111111', now(), now());
+INSERT INTO pessoa (nome, sexo, email, data_nascimento, naturalidade, nascionalidade,cpf, created_date, modified_date) VALUES
+  ('Lucas', 'MASCULINO', 'lucasdomingosnunes@gmail.com', '1996-02-07 19:10:25-07', 'Tubarão', 'Brasileiro', '11111111111', now(), now());
 
 DROP TABLE IF EXISTS usuario;
 
@@ -28,5 +28,5 @@ CREATE TABLE usuario (
 
 
 INSERT INTO usuario (username, password, created_date, modified_date) VALUES
-  ('guest1', 'guest1', now(), now()),
+  ('guest', 'guest', now(), now()),
   ('guest2', 'guest2', now(), now());

@@ -21,6 +21,7 @@ public class PessoaMapper {
                 .sexo(pessoa.getSexo())
                 .email(pessoa.getEmail())
                 .naturalidade(pessoa.getNaturalidade())
+                .nascionalidade(pessoa.getNascionalidade())
                 .cpf(pessoa.getCpf())
                 .dataNascimento(pessoa.getDataNascimento().format(DateTimeFormatter.ofPattern(FORMAT)))
                 .build();
@@ -33,6 +34,7 @@ public class PessoaMapper {
                 .sexo(pessoaDto.getSexo())
                 .email(pessoaDto.getEmail())
                 .naturalidade(pessoaDto.getNaturalidade())
+                .nascionalidade(pessoaDto.getNascionalidade())
                 .cpf(pessoaDto.getCpf())
                 .build();
 

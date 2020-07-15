@@ -3,7 +3,6 @@ package br.com.pessoa.pessoa;
 import br.com.pessoa.pessoa.exception.CpfInvalidoException;
 import br.com.pessoa.pessoa.exception.EmailInvalidoException;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,21 +97,21 @@ class PessoaServiceImplTest {
   @Test
   @DisplayName("excuir pessoa")
   void deve_excluirPessoa_quando_existirNaBase() {
-      Pessoa pessoa = Pessoa.builder()
-              .nome("usuário teste")
-              .email("teste@teste.com")
-              .cpf("807.632.820-90") // cpf gerado em https://www.4devs.com.br/gerador_de_cpf
-              .naturalidade("cidade teste")
-              .nascionalidade("país teste")
-              .sexo(Sexo.MASCULINO)
-              .dataNascimento(LocalDate.now().minusYears(1))
-              .build();
+    Pessoa pessoa = Pessoa.builder()
+            .nome("usuário teste")
+            .email("teste@teste.com")
+            .cpf("807.632.820-90") // cpf gerado em https://www.4devs.com.br/gerador_de_cpf
+            .naturalidade("cidade teste")
+            .nascionalidade("país teste")
+            .sexo(Sexo.MASCULINO)
+            .dataNascimento(LocalDate.now().minusYears(1))
+            .build();
 
-      pessoa = pessoaService.salvar(pessoa);
+    pessoa = pessoaService.salvar(pessoa);
 
-      pessoaService.excluir(pessoa.getId());
+    pessoaService.excluir(pessoa.getId());
 
-      assertTrue("não deve conter a pessoa pois acabou de ser excluido", pessoaService.buscarPorId(pessoa.getId()).isEmpty());
+    assertTrue("não deve conter a pessoa pois acabou de ser excluido", pessoaService.buscarPorId(pessoa.getId()).isEmpty());
 
   }
 
